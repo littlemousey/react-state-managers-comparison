@@ -1,0 +1,28 @@
+/**
+ * Store Manager Styles
+ * 
+ * Basic styling for the store management wrapper
+ */
+
+.store-manager {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.store-manager > .store-selector {
+  flex-shrink: 0;
+  margin: 0;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  background: #f8f9fa;
+}
+
+/* Ensure the app content takes remaining space */
+.store-manager > :not(.store-selector) {
+  flex: 1;
+  min-height: 0;
+}

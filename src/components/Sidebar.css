@@ -1,0 +1,376 @@
+/**
+ * Sidebar Styles
+ * 
+ * Styles for the drawing controls sidebar component
+ */
+
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background: #f8f9fa;
+  border-right: 1px solid #e1e5e9;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid #e1e5e9;
+  background: #ffffff;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #343a40;
+}
+
+.sidebar-content {
+  flex: 1;
+  padding: 0;
+}
+
+/* ============================================================================
+   Control Sections
+   ============================================================================ */
+
+.control-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #495057;
+  margin: 0 0 12px 0;
+  padding: 0 20px;
+}
+
+.sidebar-content > div {
+  padding: 20px;
+  border-bottom: 1px solid #e1e5e9;
+}
+
+.sidebar-content > div:last-child {
+  border-bottom: none;
+}
+
+/* ============================================================================
+   Color Picker Styles
+   ============================================================================ */
+
+.color-picker {
+  background: #ffffff;
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.color-button {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.color-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.color-button.active {
+  border-color: #007bff;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.color-button[style*="background-color: #FFFFFF"],
+.color-button[style*="background-color: #ffffff"] {
+  border-color: #adb5bd;
+}
+
+.custom-color {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.custom-color-input {
+  width: 40px;
+  height: 32px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* ============================================================================
+   Tool Selector Styles
+   ============================================================================ */
+
+.tool-selector {
+  background: #ffffff;
+}
+
+.tool-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tool-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.tool-button:hover {
+  border-color: #adb5bd;
+  background: #f8f9fa;
+}
+
+.tool-button.active {
+  border-color: #007bff;
+  background: #e7f3ff;
+  color: #0056b3;
+}
+
+.tool-icon {
+  font-size: 1.25rem;
+}
+
+.tool-name {
+  font-weight: 500;
+}
+
+/* ============================================================================
+   Action Buttons Styles
+   ============================================================================ */
+
+.action-buttons {
+  background: #ffffff;
+}
+
+.button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.action-button {
+  padding: 10px 16px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #495057;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.action-button:hover:not(:disabled) {
+  background: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #f8f9fa;
+  color: #6c757d;
+}
+
+.undo-button:hover:not(:disabled) {
+  background: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+}
+
+.redo-button:hover:not(:disabled) {
+  background: #d1ecf1;
+  border-color: #17a2b8;
+  color: #0c5460;
+}
+
+.clear-button {
+  width: 100%;
+  background: #f8f9fa;
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.clear-button:hover:not(:disabled) {
+  background: #f5c6cb;
+  border-color: #dc3545;
+  color: #721c24;
+}
+
+/* ============================================================================
+   Canvas Stats Styles
+   ============================================================================ */
+
+.canvas-stats {
+  background: #f8f9fa;
+}
+
+.stats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+}
+
+.stat-label {
+  font-weight: 500;
+  color: #6c757d;
+  min-width: 60px;
+}
+
+.stat-value {
+  color: #495057;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.stat-value.drawing {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.color-preview {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #dee2e6;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* ============================================================================
+   Responsive Design
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    max-height: 50vh;
+    border-right: none;
+    border-bottom: 1px solid #e1e5e9;
+  }
+  
+  .color-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .button-group {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  
+  .tool-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .tool-button {
+    flex: 1;
+    min-width: 0;
+    justify-content: center;
+  }
+  
+  .tool-name {
+    display: none;
+  }
+}
+
+/* ============================================================================
+   Focus and Accessibility
+   ============================================================================ */
+
+.color-button:focus,
+.tool-button:focus,
+.action-button:focus,
+.custom-color-input:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .sidebar {
+    border-color: #000000;
+  }
+  
+  .color-button,
+  .tool-button,
+  .action-button {
+    border-width: 2px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .sidebar {
+    background: #212529;
+    border-color: #495057;
+    color: #ffffff;
+  }
+  
+  .sidebar-header {
+    background: #343a40;
+    border-color: #495057;
+  }
+  
+  .sidebar-header h2,
+  .control-title {
+    color: #ffffff;
+  }
+  
+  .color-picker,
+  .tool-selector,
+  .action-buttons {
+    background: #343a40;
+  }
+  
+  .canvas-stats {
+    background: #212529;
+  }
+  
+  .tool-button,
+  .action-button {
+    background: #495057;
+    border-color: #6c757d;
+    color: #ffffff;
+  }
+  
+  .tool-button:hover:not(:disabled),
+  .action-button:hover:not(:disabled) {
+    background: #6c757d;
+  }
+}

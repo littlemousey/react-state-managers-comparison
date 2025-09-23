@@ -1,0 +1,374 @@
+/**
+ * Store Selector Styles
+ * 
+ * Styles for the state management comparison and selection interface
+ */
+
+.store-selector {
+  background: #ffffff;
+  border: 1px solid #e1e5e9;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 16px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================================================
+   Header Section
+   ============================================================================ */
+
+.selector-header {
+  text-align: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #e1e5e9;
+  padding-bottom: 16px;
+}
+
+.selector-header h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.selector-header p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+
+/* ============================================================================
+   Store Grid Layout
+   ============================================================================ */
+
+.store-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* ============================================================================
+   Store Option Cards
+   ============================================================================ */
+
+.store-option {
+  background: #f8f9fa;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+  font-family: inherit;
+}
+
+.store-option:hover {
+  border-color: #adb5bd;
+  background: #e9ecef;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.store-option.active {
+  border-color: #007bff;
+  background: #e7f3ff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.store-option.active:hover {
+  border-color: #0056b3;
+  background: #d4edff;
+}
+
+/* ============================================================================
+   Store Header
+   ============================================================================ */
+
+.store-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.store-name {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.store-badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #6c757d;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.store-option.active .store-badge {
+  background: #28a745;
+}
+
+/* ============================================================================
+   Store Description and Features
+   ============================================================================ */
+
+.store-description {
+  margin: 0 0 16px 0;
+  color: #495057;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.store-features {
+  margin-bottom: 16px;
+}
+
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.feature-item {
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.feature-item.positive {
+  color: #28a745;
+}
+
+.feature-item.negative {
+  color: #dc3545;
+}
+
+/* ============================================================================
+   Store Metrics
+   ============================================================================ */
+
+.store-metrics {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #dee2e6;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  color: #6c757d;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 0.9rem;
+  color: #2c3e50;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ============================================================================
+   Footer Section
+   ============================================================================ */
+
+.selector-footer {
+  text-align: center;
+  padding-top: 16px;
+  border-top: 1px solid #e1e5e9;
+}
+
+.current-store-notice {
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.current-store-notice strong {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.comparison-note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6c757d;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* ============================================================================
+   Responsive Design
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .store-selector {
+    padding: 16px;
+    margin: 8px 0;
+  }
+  
+  .store-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .store-option {
+    padding: 16px;
+  }
+  
+  .store-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .store-metrics {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .metric {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ============================================================================
+   Focus and Accessibility
+   ============================================================================ */
+
+.store-option:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.store-option[aria-pressed="true"] {
+  /* Selected state for accessibility */
+  position: relative;
+}
+
+/* ============================================================================
+   Dark Mode Support
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  .store-selector {
+    background: #2c3e50;
+    border-color: #495057;
+    color: #ffffff;
+  }
+  
+  .selector-header {
+    border-color: #495057;
+  }
+  
+  .selector-header h3,
+  .store-name {
+    color: #ffffff;
+  }
+  
+  .selector-header p,
+  .store-description,
+  .current-store-notice,
+  .comparison-note {
+    color: #ced4da;
+  }
+  
+  .store-option {
+    background: #343a40;
+    border-color: #495057;
+    color: #ffffff;
+  }
+  
+  .store-option:hover {
+    background: #495057;
+    border-color: #6c757d;
+  }
+  
+  .store-option.active {
+    background: #1e3a57;
+    border-color: #17a2b8;
+  }
+  
+  .store-option.active:hover {
+    background: #2c5aa0;
+  }
+  
+  .store-metrics {
+    border-color: #495057;
+  }
+  
+  .selector-footer {
+    border-color: #495057;
+  }
+  
+  .current-store-notice strong {
+    color: #17a2b8;
+  }
+}
+
+/* ============================================================================
+   Animation and Transitions
+   ============================================================================ */
+
+.store-option {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.store-badge {
+  transition: all 0.2s ease;
+}
+
+.feature-item {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.feature-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.feature-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   High Contrast Mode
+   ============================================================================ */
+
+@media (prefers-contrast: high) {
+  .store-option {
+    border-width: 3px;
+  }
+  
+  .store-option.active {
+    border-width: 4px;
+  }
+}
