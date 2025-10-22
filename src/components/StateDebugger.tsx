@@ -27,6 +27,7 @@
 import React, { useState, useCallback, useMemo } from 'react'
 import { useCanvasStoreWithType } from '../hooks/useCanvasStoreHooks'
 import type { Point, Shape, CanvasStore } from '../store/types'
+import './StateDebugger.css'
 
 // ============================================================================
 // JSON Formatting Utilities
@@ -178,7 +179,7 @@ const StateInspector: React.FC<StateInspectorProps> = ({ data, className = '' })
           <h4>🔍 {data.storeName} State Inspector</h4>
           <div className="store-badges">
             <span className="store-type-badge">{data.storeType}</span>
-            <span className="timestamp-badge">{new Date(data.timestamp).toLocaleTimeString()}</span>
+            <span className="timestamp-badge">{data.timestamp}</span>
           </div>
         </div>
         

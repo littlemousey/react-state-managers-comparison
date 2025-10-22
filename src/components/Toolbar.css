@@ -1,0 +1,300 @@
+/* ============================================================================
+ * Toolbar Styles
+ * ============================================================================ */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  background: var(--bg-secondary, #f8f9fa);
+  border-bottom: 1px solid var(--border-color, #e9ecef);
+  min-height: 50px;
+  flex-wrap: wrap;
+  overflow-x: auto;
+}
+
+.toolbar-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.section-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary, #6c757d);
+  min-width: max-content;
+}
+
+/* ============================================================================
+ * Tools Section
+ * ============================================================================ */
+
+.tool-buttons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.tool-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-color, #dee2e6);
+  background: var(--bg-primary, #ffffff);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.tool-btn:hover {
+  background: var(--bg-hover, #e9ecef);
+  border-color: var(--accent-color, #0d6efd);
+}
+
+.tool-btn.active {
+  background: var(--accent-color, #0d6efd);
+  color: white;
+  border-color: var(--accent-color, #0d6efd);
+}
+
+/* ============================================================================
+ * Colors Section
+ * ============================================================================ */
+
+.color-palette {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.color-btn {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--border-color, #dee2e6);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.color-btn:hover {
+  transform: scale(1.1);
+  border-color: var(--accent-color, #0d6efd);
+}
+
+.color-btn.active {
+  border-color: var(--accent-color, #0d6efd);
+  border-width: 3px;
+  transform: scale(1.1);
+}
+
+.custom-color-btn {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--border-color, #dee2e6);
+  border-radius: 50%;
+  cursor: pointer;
+  background: none;
+}
+
+.custom-color-btn::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.custom-color-btn::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+/* ============================================================================
+ * Actions Section
+ * ============================================================================ */
+
+.action-buttons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.action-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-color, #dee2e6);
+  background: var(--bg-primary, #ffffff);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.action-btn:hover:not(:disabled) {
+  background: var(--bg-hover, #e9ecef);
+  border-color: var(--accent-color, #0d6efd);
+}
+
+.action-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.clear-btn:hover:not(:disabled) {
+  background: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+/* ============================================================================
+ * History Section
+ * ============================================================================ */
+
+.history-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.history-dropdown {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: 4px;
+  background: var(--bg-primary, #ffffff);
+  color: var(--text-primary, #212529);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 140px;
+}
+
+.history-dropdown:hover:not(:disabled) {
+  border-color: var(--accent-color, #0d6efd);
+}
+
+.history-dropdown:focus {
+  outline: none;
+  border-color: var(--accent-color, #0d6efd);
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.1);
+}
+
+.history-dropdown:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: var(--bg-tertiary, #e9ecef);
+}
+
+/* ============================================================================
+ * Stats Section
+ * ============================================================================ */
+
+.canvas-stats {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.stat {
+  font-size: 0.875rem;
+  color: var(--text-secondary, #6c757d);
+  background: var(--bg-tertiary, #e9ecef);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* ============================================================================
+ * Dark Mode Support
+ * ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  .toolbar {
+    --bg-primary: #1e1e1e;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3d3d3d;
+    --bg-hover: #404040;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --border-color: #404040;
+    --accent-color: #0d6efd;
+  }
+  
+  .history-dropdown {
+    color: var(--text-primary, #ffffff);
+  }
+  
+  .history-dropdown option {
+    background: var(--bg-primary, #1e1e1e);
+    color: var(--text-primary, #ffffff);
+  }
+}
+
+/* ============================================================================
+ * Responsive Design
+ * ============================================================================ */
+
+@media (max-width: 768px) {
+  .toolbar {
+    gap: 0.75rem;
+    padding: 0.4rem 1rem;
+    min-height: 45px;
+  }
+  
+  .toolbar-section {
+    gap: 0.375rem;
+  }
+  
+  .section-label {
+    font-size: 0.75rem;
+  }
+  
+  .tool-btn,
+  .action-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+  
+  .color-btn,
+  .custom-color-btn {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .stat {
+    font-size: 0.75rem;
+    padding: 0.125rem 0.375rem;
+  }
+  
+  .history-dropdown {
+    font-size: 0.8rem;
+    min-width: 120px;
+    padding: 0.2rem 0.4rem;
+  }
+  
+  /* Stack sections on very small screens */
+  @media (max-width: 480px) {
+    .toolbar {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.5rem;
+      padding: 0.3rem 0.75rem;
+    }
+    
+    .toolbar-section {
+      justify-content: space-between;
+    }
+    
+    .canvas-stats {
+      justify-content: center;
+    }
+    
+    .history-dropdown {
+      min-width: 100px;
+      font-size: 0.75rem;
+    }
+  }
+}

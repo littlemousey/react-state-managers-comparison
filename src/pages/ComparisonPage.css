@@ -1,0 +1,214 @@
+/**
+ * Comparison Page Styles
+ * 
+ * Styles for the dedicated comparison page layout
+ */
+
+.comparison-page {
+  min-height: calc(100vh - 64px); /* Account for navigation */
+  background: #f8f9fa;
+  padding: 24px 0;
+}
+
+.comparison-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ============================================================================
+   Page Actions Section
+   ============================================================================ */
+
+.page-actions {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.action-card {
+  background: #ffffff;
+  border: 1px solid #e1e5e9;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.action-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.action-card h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.action-card p {
+  margin: 0 0 20px 0;
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* ============================================================================
+   Action Buttons
+   ============================================================================ */
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.action-button.primary {
+  background: #007bff;
+  color: #ffffff;
+  border-color: #007bff;
+}
+
+.action-button.primary:hover {
+  background: #0056b3;
+  border-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* ============================================================================
+   Resource Links
+   ============================================================================ */
+
+.resource-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.resource-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: #f8f9fa;
+  color: #007bff;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid #e1e5e9;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.resource-link:hover {
+  background: #e9ecef;
+  border-color: #007bff;
+  transform: translateY(-1px);
+}
+
+.resource-link:before {
+  content: "🔗";
+  margin-right: 6px;
+}
+
+/* ============================================================================
+   Responsive Design
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .comparison-page {
+    min-height: calc(100vh - 56px); /* Smaller navigation on mobile */
+    padding: 16px 0;
+  }
+  
+  .comparison-container {
+    padding: 0 12px;
+  }
+  
+  .page-actions {
+    margin-top: 24px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .action-card {
+    padding: 16px;
+  }
+  
+  .resource-links {
+    flex-direction: column;
+  }
+  
+  .resource-link {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .comparison-page {
+    min-height: calc(100vh - 112px); /* Multi-line navigation */
+    padding: 12px 0;
+  }
+  
+  .action-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .action-button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+/* ============================================================================
+   Dark Mode Support
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  .comparison-page {
+    background: #343a40;
+  }
+  
+  .action-card {
+    background: #2c3e50;
+    border-color: #495057;
+  }
+  
+  .action-card h3 {
+    color: #ffffff;
+  }
+  
+  .action-card p {
+    color: #ced4da;
+  }
+  
+  .action-button.primary {
+    background: #17a2b8;
+    border-color: #17a2b8;
+  }
+  
+  .action-button.primary:hover {
+    background: #138496;
+    border-color: #138496;
+  }
+  
+  .resource-link {
+    background: #495057;
+    color: #17a2b8;
+    border-color: #6c757d;
+  }
+  
+  .resource-link:hover {
+    background: #6c757d;
+    border-color: #17a2b8;
+  }
+}

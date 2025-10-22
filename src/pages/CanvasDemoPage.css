@@ -1,0 +1,242 @@
+/**
+ * Canvas Demo Page Styles
+ * 
+ * Styles for the interactive canvas drawing demo page with horizontal toolbar layout
+ */
+
+.canvas-demo-page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 64px); /* Account for navigation height */
+  background-color: #f8f9fa;
+}
+
+/* ============================================================================
+   Demo Toolbar
+   ============================================================================ */
+
+.demo-toolbar {
+  flex: 0 0 16.6667%; /* flex-grow: 0, flex-shrink: 0, flex-basis: 16.6667% (1/6) */
+  border-bottom: 1px solid #e1e5e9;
+  min-height: 60px; /* Ensure minimum usable height */
+  max-height: 120px; /* Prevent toolbar from becoming too large on very tall screens */
+}
+
+/* ============================================================================
+   Demo Content Area
+   ============================================================================ */
+
+.demo-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.demo-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e1e5e9;
+  padding: 16px 24px;
+  flex-shrink: 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+}
+
+.header-content > div h1 {
+  margin: 0 0 4px 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.header-content > div p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+.info-toggle-btn {
+  padding: 8px 16px;
+  background: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.info-toggle-btn:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+.info-toggle-btn:active {
+  transform: translateY(0);
+}
+
+/* ============================================================================
+   Demo Main Content
+   ============================================================================ */
+
+.demo-main {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-panel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ============================================================================
+   Responsive Design
+   ============================================================================ */
+
+@media (max-width: 1024px) {
+  .demo-header {
+    padding: 12px 16px;
+  }
+  
+  .header-content > div h1 {
+    font-size: 1.5rem;
+  }
+  
+  .header-content > div p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .canvas-demo-page {
+    height: calc(100vh - 56px); /* Smaller navigation on mobile */
+  }
+  
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .info-toggle-btn {
+    align-self: stretch;
+    text-align: center;
+  }
+  
+  .info-panel-overlay {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .canvas-demo-page {
+    height: calc(100vh - 112px); /* Account for multi-line navigation */
+  }
+  
+  .demo-header {
+    padding: 8px 12px;
+  }
+  
+  .header-content > div h1 {
+    font-size: 1.25rem;
+  }
+  
+  .header-content > div p {
+    font-size: 0.85rem;
+  }
+  
+  .info-toggle-btn {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+}
+
+/* ============================================================================
+   Dark Mode Support
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  .canvas-demo-page {
+    background-color: #343a40;
+  }
+  
+  .demo-header {
+    background: #2c3e50;
+    border-color: #495057;
+  }
+  
+  .header-content > div h1 {
+    color: #ffffff;
+  }
+  
+  .header-content > div p {
+    color: #ced4da;
+  }
+  
+  .info-toggle-btn {
+    background: #17a2b8;
+  }
+  
+  .info-toggle-btn:hover {
+    background: #138496;
+  }
+}
+
+/* ============================================================================
+   Debug Panel (at bottom)
+   ============================================================================ */
+
+.debug-panel {
+  flex: 0 0 25%; /* Give it 1/4 of the available space */
+  background: var(--bg-secondary, #f8f9fa);
+  border-top: 1px solid #e1e5e9;
+  min-height: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* ============================================================================
+   Dark Mode Support
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  .canvas-demo-page {
+    --bg-primary: #1e1e1e;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+  }
+  
+  .debug-panel {
+    border-top-color: #404040;
+  }
+}
+
+/* ============================================================================
+   Responsive Design
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .debug-panel {
+    flex: 0 0 30%; /* Give it more space on smaller screens */
+    min-height: 180px;
+    max-height: 300px;
+  }
+}

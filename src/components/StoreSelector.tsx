@@ -22,52 +22,26 @@ interface StoreSelectorProps {
 }
 
 // ============================================================================
-// Store Information Display
+// Store Button Component
 // ============================================================================
 
-interface StoreInfoProps {
+interface StoreButtonProps {
   storeType: StoreType
   isActive: boolean
   onSelect: () => void
 }
 
-const StoreInfo: React.FC<StoreInfoProps> = ({ storeType, isActive, onSelect }) => {
+const StoreButton: React.FC<StoreButtonProps> = ({ storeType, isActive, onSelect }) => {
   const config = STORE_CONFIGS[storeType]
   
   return (
     <button
-      className={`store-option ${isActive ? 'active' : ''}`}
+      className={`store-button ${isActive ? 'active' : ''}`}
       onClick={onSelect}
       aria-pressed={isActive}
       title={`Switch to ${config.name}`}
     >
-      <div className="store-header">
-        <h4 className="store-name">{config.name}</h4>
-        <span className="store-badge">{isActive ? '✓ Active' : 'Select'}</span>
-      </div>
-      
-      <p className="store-description">{config.description}</p>
-      
-      <div className="store-features">
-        <div className="feature-list">
-          {config.pros.slice(0, 2).map((pro, index) => (
-            <span key={index} className="feature-item positive">
-              ✓ {pro}
-            </span>
-          ))}
-        </div>
-      </div>
-      
-      <div className="store-metrics">
-        <span className="metric">
-          <span className="metric-label">Features:</span>
-          <span className="metric-value">{config.features.length}</span>
-        </span>
-        <span className="metric">
-          <span className="metric-label">Type:</span>
-          <span className="metric-value">{config.type}</span>
-        </span>
-      </div>
+      {config.name}
     </button>
   )
 }
@@ -85,31 +59,22 @@ const StoreSelector: React.FC<StoreSelectorProps> = ({
   
   return (
     <div className={`store-selector ${className}`}>
-      <header className="selector-header">
-        <h3>State Management Comparison</h3>
-        <p>Choose a state management solution to see it in action:</p>
-      </header>
-      
-      <div className="store-grid">
-        {storeTypes.map(storeType => (
-          <StoreInfo
-            key={storeType}
-            storeType={storeType}
-            isActive={currentStore === storeType}
-            onSelect={() => onStoreChange(storeType)}
-          />
-        ))}
+      <div className="selector-content">
+        <span className="selector-label">State Manager:</span>
+        <div className="store-buttons">
+          {storeTypes.map(storeType => (
+            <StoreButton
+              key={storeType}
+              storeType={storeType}
+              isActive={currentStore === storeType}
+              onSelect={() => onStoreChange(storeType)}
+            />
+          ))}
+        </div>
+        <span className="current-store">
+          {STORE_CONFIGS[currentStore].name}
+        </span>
       </div>
-      
-      <footer className="selector-footer">
-        <p className="current-store-notice">
-          Currently using: <strong>{STORE_CONFIGS[currentStore].name}</strong>
-        </p>
-        <p className="comparison-note">
-          💡 Switch between stores to see how they handle the same state and actions differently.
-          Your drawings will be preserved when switching!
-        </p>
-      </footer>
     </div>
   )
 }

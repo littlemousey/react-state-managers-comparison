@@ -38,12 +38,19 @@ This application implements **identical functionality** across three different s
 - 🔧 **TypeScript** - Full type safety across all implementations
 - 📋 **Copy State** - Export state as JSON for debugging
 
+### Navigation & Pages
+- 🎨 **Canvas Demo** (`/`) - Interactive drawing application with runtime state manager switching
+- 📊 **Detailed Comparison** (`/comparison`) - Comprehensive analysis of state management solutions
+- 🤖 **404 Page** - User-friendly error page for invalid routes
+- 🧭 **Navigation Bar** - Sticky navigation with active route highlighting
+
 ## 🛠️ Technology Stack
 
 ### Core Framework
 - **React 18** - Modern React with hooks and concurrent features
 - **TypeScript** - Full type safety and better developer experience
 - **Vite 7** - Lightning-fast build tool with HMR
+- **React Router DOM** - Client-side routing for multi-page navigation
 
 ### State Management Libraries
 - **Zustand 5.0.8** - Lightweight store with Immer middleware
@@ -61,10 +68,16 @@ This application implements **identical functionality** across three different s
 src/
 ├── components/           # React components
 │   ├── CanvasEditor.tsx     # Interactive drawing canvas
-│   ├── Sidebar.tsx          # Drawing controls and tools
+│   ├── Toolbar.tsx          # Drawing controls and tools
 │   ├── StateDebugger.tsx    # Real-time state inspector
 │   ├── StoreManager.tsx     # Store switching logic
-│   └── StoreSelector.tsx    # Store selection UI
+│   ├── StoreSelector.tsx    # Compact store selection buttons
+│   ├── StoreComparison.tsx  # Detailed comparison component
+│   └── Navigation.tsx       # Navigation bar component
+├── pages/               # Route-based page components
+│   ├── CanvasDemoPage.tsx   # Main canvas demo page (/)
+│   ├── ComparisonPage.tsx   # Comparison analysis page (/comparison)
+│   └── NotFoundPage.tsx     # 404 error page
 ├── store/               # State management implementations
 │   ├── types.ts            # Shared TypeScript interfaces
 │   ├── utils.ts            # Canvas utilities and helpers
@@ -116,14 +129,14 @@ src/
 ## 🎨 How to Use
 
 ### Basic Drawing
-1. **Select a color** from the palette in the sidebar
+1. **Select a color** from the palette in the toolbar
 2. **Choose a drawing tool** (pen, brush, marker)
 3. **Click and drag** on the canvas to draw
 4. **Use undo/redo** buttons to manage your drawing history
 
 ### Store Comparison
 1. **Draw something** on the canvas
-2. **Switch stores** using the dropdown in the sidebar
+2. **Switch stores** using the dropdown in the toolbar
 3. **Notice** how your drawing persists across different state managers
 4. **Open the State Debugger** to inspect internal state differences
 
